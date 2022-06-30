@@ -13,6 +13,14 @@
 import numpy as np
 from scipy.fft import fft, fftfreq, fftshift
 import matplotlib.pyplot as plt
+import os
+
+# Cria a pasta onde serão salvos os gráficos
+script_dir = os.path.dirname(__file__)
+results_dir = os.path.join(script_dir, 'Resultados/Gráficos AMDSB/')
+
+if not os.path.isdir(results_dir):
+    os.makedirs(results_dir)
 
 # Número de pontos no qual o sinal será amostrado
 N = 100000
@@ -51,7 +59,6 @@ xf = fftfreq(N, T)
 xf = fftshift(xf)
 yplot = fftshift(yf)
 
-
 # Curvas no tempo
 plt.figure(figsize = (10, 5))         
 plt.title('Sinal modulante ($fm=%d$ Hz)' %fm)   
@@ -61,7 +68,7 @@ plt.plot(t, em,'r')
 plt.xlim(0, 3*(1/fm))
 plt.grid(True, axis = 'both')        
 plt.tight_layout(pad=4.0)
-plt.savefig('AMDSB_Sinal_Modulante.png', dpi=300)
+plt.savefig('Resultados/Gráficos AMDSB/AMDSB_Sinal_Modulante.png', dpi=300)
 
 plt.figure(figsize = (10, 5))         
 plt.title('Sinal da onda portadora ($fc=%d$ Hz)' %fc)   
@@ -71,7 +78,7 @@ plt.plot(t, ec,'b')
 plt.xlim(0, 3*(1/fc))           
 plt.grid(True, axis = 'both')        
 plt.tight_layout(pad=4.0)
-plt.savefig('AMDSB_Portadora.png', dpi=300)
+plt.savefig('Resultados/Gráficos AMDSB/AMDSB_Portadora.png', dpi=300)
 
 plt.figure(figsize = (10, 5))         
 plt.title('Sinal modulado ($m=%f$)' %m)   
@@ -81,7 +88,7 @@ plt.plot(t, e,'y')
 plt.xlim(0, 3*(1/fm))
 plt.grid(True, axis = 'both')        
 plt.tight_layout(pad=4.0)
-plt.savefig('AMDSB_Sinal_Modulado.png', dpi=300)
+plt.savefig('Resultados/Gráficos AMDSB/AMDSB_Sinal_Modulado.png', dpi=300)
 
 plt.figure(figsize = (10, 5))         
 plt.title('AM-DSB - Sinais Modulante, Portadora e Modulado')  
@@ -94,7 +101,7 @@ plt.legend(loc='upper right', shadow=True)
 plt.xlim(0, 3*(1/fm))
 plt.grid(True, axis = 'both')        
 plt.tight_layout(pad=4.0)
-plt.savefig('AMDSB_Sobreposição_Sinais.png', dpi=300)
+plt.savefig('Resultados/Gráficos AMDSB/AMDSB_Sobreposição_Sinais.png', dpi=300)
 
 
 # Análise espectral do sinal modulado
@@ -104,6 +111,6 @@ plt.xlabel('Frequência [Hz]')
 plt.ylabel('sinal modulado [V]')
 plt.plot(xf, 1.0/N * np.abs(yplot))
 plt.xlim(0, (fc+fm)*1.5)
-plt.savefig('AMDSB_Analise_espectral.png', dpi=300)
+plt.savefig('Resultados/Gráficos AMDSB/AMDSB_Analise_espectral.png', dpi=300)
 plt.grid()
 plt.show()
