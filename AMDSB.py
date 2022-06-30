@@ -22,13 +22,13 @@ T = 1/(2*N)
 t = np.linspace(0, N*T, N, endpoint=False)
 
 # Índice modulante que define a amplitude do sinal modulador
-m = 0.8
+m = 0.6
 
 # Frequência do sinal modulador [Hz]
 fm = 440
 
 # Frequência da portadora [Hz]
-fc = 5000
+fc = 6000
 
 
 # Definição do sinal modulante
