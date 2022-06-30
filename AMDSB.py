@@ -15,7 +15,7 @@ from scipy.fft import fft, fftfreq, fftshift
 import matplotlib.pyplot as plt
 
 # Número de pontos no qual o sinal será amostrado
-N = 20000
+N = 100000
 # Tempo de simulação
 T = 1/(2*N)
 # Vetor tempo
@@ -68,7 +68,7 @@ plt.title('Sinal da onda portadora ($fc=%d$ Hz)' %fc)
 plt.xlabel('Tempo [s]')              
 plt.ylabel('Portadora [V]')
 plt.plot(t, ec,'b')
-plt.xlim(0, 3*(1/fm))           
+plt.xlim(0, 3*(1/fc))           
 plt.grid(True, axis = 'both')        
 plt.tight_layout(pad=4.0)
 plt.savefig('AMDSB_Portadora.png', dpi=300)
