@@ -3,7 +3,7 @@
     Universidade Estadual do Oeste do Paraná - UNIOESTE
     Disciplina: Comunicação Analógica e Digital, 5° ano de Engenharia Elétrica
     Professor Maurício Menon
-    Foz do Iguaçú, 28/Abril/2022
+    Foz do Iguaçu, 28/Abril/2022
     V1.0
     Referências:
         - Principles of Eletronic Communication System, by Louis E. Frenzel Jr., Fourth Editi
@@ -14,7 +14,7 @@ import numpy as np
 from scipy.fft import fft, fftfreq, fftshift
 import matplotlib.pyplot as plt
 import os
-# testg
+
 # Cria a pasta onde serão salvos os gráficos
 script_dir = os.path.dirname(__file__)
 results_dir = os.path.join(script_dir, 'Resultados/Gráficos AMDSB-SC/')
@@ -122,4 +122,3 @@ plt.xlim(0, (fc+fm)*1.5)
 plt.savefig(
     'Resultados/Gráficos AMDSB-SC/AMDSB-SC_Analise_espectral.png', dpi=300)
 plt.grid()
-plt.show()
